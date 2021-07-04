@@ -3,6 +3,6 @@ import org.scalacheck.Prop.forAll
 
 class Property1 extends Properties("hello"):
 
-  property("addition is commutative") = forAll { (x: Int, y: Int) =>
+  property("addition of Int should be commutative") = forAll { (x: Int, y: Int) =>
     x + y == y + x
   }
