@@ -1,5 +1,4 @@
-@main def hello: Unit =
-  println("Hello world!")
-  println(msg)
+import cats.effect.{IO, IOApp}
 
-def msg = "I was compiled by Scala 3. :)"
+object Main extends IOApp.Simple:
+  val run = IO.println("Hello world!")

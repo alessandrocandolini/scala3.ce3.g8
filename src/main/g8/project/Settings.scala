@@ -31,16 +31,18 @@ object Dependencies {
   val dependencies = cats ++ fs2
 
   val testDependencies = Seq(
-    "org.scalacheck" %% "scalacheck" % Versions.scalacheck
+    "org.scalacheck" %% "scalacheck"          % Versions.scalacheck,
+    "org.typelevel"  %% "scalacheck-effect"   % Versions.scalacheckEffectVersion,
   ).map(_ % Test)
 }
 
 object Versions {
 
-  val scala      = "3.0.1-RC2"
-  val catsCore   = "2.6.1"
-  val catsEffect = "3.1.1"
-  val fs2        = "3.0.6"
-  val scalacheck = "1.15.4"
+  val scala                   = "3.0.1-RC2"
+  val catsCore                = "2.6.1"
+  val catsEffect              = "3.1.1"
+  val scalacheckEffectVersion = "1.0.2"
+  val fs2                     = "3.0.6"
+  val scalacheck              = "1.15.4"
 
 }
