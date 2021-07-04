@@ -14,7 +14,28 @@ It also includes
 In the future i would like to add 
 * few more dependencies 
 * few more code in `Main`
-* gthub actions pipeline 
+* gthub actions pipeline
+
+## Install Giter8
+
+On MAC OS X, Giter8 is available via the Homebrew package manager:
+```
+brew update
+brew install giter8
+```
+
+For more options, refer to the original documentation http://www.foundweekends.org/giter8/setup.html
+
+## Usage of this template
+
+To generate a project, once Giter8 is successfully installed on your system, clone this repo and run
+```
+g8 file:///<local-checkout-dir>/scala3.ce3.g8/ --name=<project name>
+```
+
+This will generate a folder `<project name>`, based on the local version of the g8 template.0
+
+For other options see http://www.foundweekends.org/giter8/usage.html#Usage
 
 Template license
 ----------------
