@@ -37,7 +37,7 @@ object Dependencies {
 
 object Versions {
 
-  val scala      = "3.0.0"
+  val scala      = "3.0.1-RC2"
   val catsCore   = "2.6.1"
   val catsEffect = "3.1.1"
   val fs2        = "3.0.6"
