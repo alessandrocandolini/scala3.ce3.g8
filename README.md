@@ -9,6 +9,7 @@ It's configured to setup a number of handful dependencies:
 
 It also includes 
 * [scalafmt](https://scalameta.org/scalafmt/) configuration (via [sbt-scalafmt](https://github.com/scalameta/sbt-scalafmt) sbt plugin)
+* [sbt-assembly](https://github.com/sbt/sbt-assembly) plugin to generate "fat" jars (remove it if the goal is to build a library)
 * opinionated compiler options (eg, `-Yexplicit-nulls`) 
 
 In the future i would like to add 
