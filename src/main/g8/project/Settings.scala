@@ -11,6 +11,7 @@ object Settings {
       "-feature",
       "-unchecked",
       "-language:strictEquality",
+      "-language:postfixOps",
       "-Yexplicit-nulls"
     )
   )
