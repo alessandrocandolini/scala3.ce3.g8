@@ -1,0 +1,16 @@
+*.iml
+*.xml
+.DS_Store
+.idea
+/.classpath
+/.idea
+/.idea_modules
+/.project
+/.settings
+/RUNNING_PID
+boot/
+lib_managed/
+logs
+project/plugins/project/
+src_managed/
+target/
