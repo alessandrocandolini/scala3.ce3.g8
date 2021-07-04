@@ -1,3 +1,5 @@
+# scala3.ce3.g8
+
 A [Giter8][g8] template for sbt-based scala 3 projects. 
 
 It's configured to setup a number of handful dependencies: 
