@@ -41,9 +41,9 @@ object Versions {
 
   val scala                   = "3.0.1"
   val catsCore                = "2.6.1"
-  val catsEffect              = "3.1.1"
+  val catsEffect              = "3.2.2"
   val scalacheckEffectVersion = "1.0.2"
-  val fs2                     = "3.0.6"
+  val fs2                     = "3.1.0"
   val scalacheck              = "1.15.4"
 
 }
