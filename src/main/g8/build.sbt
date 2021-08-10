@@ -6,11 +6,13 @@ version := "1.0-SNAPSHOT"
 
 lazy val root = (project in file("."))
   .settings(commonSettings)
+  .settings(Defaults.itSettings)
   .settings(
-     name                        := "$project_name$",
-     scalaVersion := Versions.scala,
-     assembly / assemblyJarName := "$jar_filename$",
-     assembly / test := (Test / test).value,
-     scalafmtOnCompile := true,
-     libraryDependencies ++= (dependencies ++ testDependencies)
-   )
+    name := "$project_name$",
+    scalaVersion := Versions.scala,
+    assembly / assemblyJarName := "$jar_filename$",
+    assembly / test := Def.sequential(Test / test, IntegrationTest / test).value,
+    scalafmtOnCompile := false,
+    libraryDependencies ++= (dependencies ++ testDependencies)
+  )
+  .configs(IntegrationTest)
