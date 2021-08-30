@@ -1,6 +1,6 @@
 # scala3.ce3.g8
 
-A [Giter8][g8] template for sbt-based scala 3 projects. 
+A [Giter8][g8] template for sbt-based scala 3 projects using typelevel stack. The template can be helpful for both web servers and CLIs. 
 
 It's configured to setup a number of handful dependencies: 
 * [cats-core](https://typelevel.org/cats/) and [cats-effects 3.x](https://typelevel.org/cats-effect/)
@@ -15,6 +15,9 @@ It also includes
 * [scalafmt](https://scalameta.org/scalafmt/) configuration (via [sbt-scalafmt](https://github.com/scalameta/sbt-scalafmt) sbt plugin)
 * [sbt-assembly](https://github.com/sbt/sbt-assembly) plugin to generate "fat" jars (remove it if the goal is to build a library)
 * opinionated compiler options (eg, `-Yexplicit-nulls`) 
+
+
+The generated project is setup to run unit and integration tests (with `sbt test` and `sbt it:test` respectively) 
 
 In the future i would like to add 
 * few more code in `Main`
