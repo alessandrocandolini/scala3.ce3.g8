@@ -5,6 +5,8 @@ import cli._
 import com.monovore.decline.Opts
 import fs2._
 import cats.Functor
+import utils._
+import utils.simpleConsole
 
 object Main extends CommandIOAppSimple(
       name = "simple cli",
@@ -16,8 +18,8 @@ object Main extends CommandIOAppSimple(
 
   def source : Stream[Pure, String] = Stream("hello", "world")
 
-  def pipeline[F[_] : Console : Functor, A : Show] : Stream[F,A] => Stream[F,A] =
-    _.evalTap(Console[F].println)
+  def pipeline[F[_] : SimpleConsole : Functor, A : Show] : Stream[F,A] => Stream[F,A] =
+    _.evalTap(summon[SimpleConsole[F]].println)
 
   val program: Args => IO[Unit] = _ =>
     source.covary[IO]
