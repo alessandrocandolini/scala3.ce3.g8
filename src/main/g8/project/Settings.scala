@@ -36,7 +36,7 @@ object Dependencies {
   )
 
   val db = Seq(
-    "org.postgresql" % "postgresql" % "42.2.1",
+    "org.postgresql" % "postgresql" % "42.2.22",
     "org.tpolecat" %% "skunk-core" % "0.2.0"
   )
 

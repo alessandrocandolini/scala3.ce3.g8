@@ -7,6 +7,7 @@ It's configured to setup a number of handful dependencies:
 * [fs2 3.x](https://fs2.io/) for effectful, resource-safe streams 
 * [tapir](https://tapir.softwaremill.com/en/latest/) to describe HTTP endpoints as values and derive implementation of client, server etc; compatible with http4s and sttp, and many others 
 * [decline](https://ben.kirw.in/decline/) for command-line argument parsing 
+* [skunk](https://github.com/tpolecat/skunk) for postgresql database access 
 * [scalacheck](https://www.scalacheck.org/) for property-based testing, with [scalacheck-effect](https://github.com/typelevel/scalacheck-effect) to test effectful code 
 
 The stack mirrors a similar stack in Haskell using: conduit, servant, optparse-applicative and quickcheck. 
