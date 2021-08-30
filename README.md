@@ -1,6 +1,6 @@
 # scala3.ce3.g8
 
-A [Giter8][g8] template for sbt-based scala 3 projects using typelevel stack. The template can be helpful for both web servers and CLIs. 
+**Unofficial** [Giter8][g8] template for sbt-based scala 3 projects using typelevel stack. The template can be helpful for both web servers and CLIs. 
 
 It's configured to setup a number of handful dependencies: 
 * [cats-core](https://typelevel.org/cats/) and [cats-effects 3.x](https://typelevel.org/cats-effect/)
