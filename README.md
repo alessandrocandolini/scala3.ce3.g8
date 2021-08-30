@@ -19,6 +19,7 @@ It also includes
 In the future i would like to add 
 * few more code in `Main`
 * gthub actions pipeline
+* consider using [make-g8](https://github.com/arturopala/make-it-g8)
 
 ## Install Giter8
 
