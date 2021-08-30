@@ -4,7 +4,7 @@ A [Giter8][g8] template for sbt-based scala 3 projects.
 
 It's configured to setup a number of handful dependencies: 
 * [cats-core](https://typelevel.org/cats/) and [cats-effects 3.x](https://typelevel.org/cats-effect/)
-* [fs2 3.x](https://fs2.io/)
+* [fs2 3.x](https://fs2.io/) for effectful, resource-safe streams 
 * [tapir](https://tapir.softwaremill.com/en/latest/) to describe HTTP endpoints as values and derive implementation of client, server etc; compatible with http4s and sttp, and many others 
 * [decline](https://ben.kirw.in/decline/) for command-line argument parsing 
 * [scalacheck](https://www.scalacheck.org/) for property-based testing, with [scalacheck-effect](https://github.com/typelevel/scalacheck-effect) to test effectful code 
