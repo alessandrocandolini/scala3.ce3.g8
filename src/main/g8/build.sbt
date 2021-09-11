@@ -13,7 +13,7 @@ lazy val root = project
   .settings(
     name := "$project_name$",
     version := "0.1",
-    scalaVersion := "3.0.1",
+    scalaVersion := "3.1.0-RC1",
     assembly / test := Def
       .sequential(Test / test, IntegrationTest / test)
       .value,
