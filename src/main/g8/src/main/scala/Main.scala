@@ -9,8 +9,8 @@ import utils._
 import utils.simpleConsole
 
 object Main extends CommandIOAppSimple(
-      name = "simple cli",
-      header = "simple cli",
+      name = "$project_name$",
+      header = "$project_name$",
       version = "0.1"
     ):
 
@@ -19,7 +19,7 @@ object Main extends CommandIOAppSimple(
   def source : Stream[Pure, String] = Stream("hello", "world")
 
   def pipeline[F[_] : SimpleConsole : Functor, A : Show] : Stream[F,A] => Stream[F,A] =
-    _.evalTap(summon[SimpleConsole[F]].println)
+    _.evalTap(SimpleConsole[F].println)
 
   val program: Args => IO[Unit] = _ =>
     source.covary[IO]
