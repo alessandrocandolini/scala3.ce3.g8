@@ -23,7 +23,7 @@ object Dependencies {
   val circe = Seq(
     "io.circe" %% "circe-core"
   ).map(_ % "0.15.0-M1") ++
-    Seq("io.circe" %% "circe-fs2" % "0.15.0-M1")
+    Seq("io.circe" %% "circe-fs2" % "0.14.0")
 
   val fs2 = Seq(
     "fs2-core",
