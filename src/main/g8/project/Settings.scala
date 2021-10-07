@@ -28,7 +28,7 @@ object Dependencies {
   val fs2 = Seq(
     "fs2-core",
     "fs2-io"
-  ).map("co.fs2" %% _ % "3.1.2")
+  ).map("co.fs2" %% _ % "3.1.4")
 
   val cats = Seq(
     "org.typelevel" %% "cats-core" % "2.6.1",
@@ -44,12 +44,12 @@ object Dependencies {
     "tapir-core",
     "tapir-sttp-client",
     "tapir-json-circe"
-  ).map("com.softwaremill.sttp.tapir" %% _ % "0.19.0-M9") ++ Seq("com.softwaremill.sttp.client3" %% "async-http-client-backend-cats" % "3.3.14")
+  ).map("com.softwaremill.sttp.tapir" %% _ % "0.19.0-M10") ++ Seq("com.softwaremill.sttp.client3" %% "async-http-client-backend-cats" % "3.3.15")
 
   val decline = Seq(
     "decline-effect",
     "decline"
-  ).map("com.monovore" %% _ % "2.1.0")
+  ).map("com.monovore" %% _ % "2.2.0")
 
   val scalacheckEffect = Seq(
     "scalacheck-effect",
