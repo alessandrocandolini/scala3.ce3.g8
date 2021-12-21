@@ -29,23 +29,23 @@ object Dependencies {
   val fs2 = Seq(
     "fs2-core",
     "fs2-io"
-  ).map("co.fs2" %% _ % "3.2.2")
+  ).map("co.fs2" %% _ % "3.2.3")
 
   val cats = Seq(
-    "org.typelevel" %% "cats-core" % "2.6.1",
-    "org.typelevel" %% "cats-effect" % "3.3-393-da7c7c7"
+    "org.typelevel" %% "cats-core" % "2.7.0",
+    "org.typelevel" %% "cats-effect" % "3.3.1"
   )
 
   val db = Seq(
-    "org.postgresql" % "postgresql" % "42.2.22",
-    "org.tpolecat" %% "skunk-core" % "0.2.2"
+    "org.postgresql" % "postgresql" % "42.3.1",
+    "org.tpolecat" %% "skunk-core" % "0.2.3"
   )
 
   val http = Seq(
     "tapir-core",
     "tapir-sttp-client",
     "tapir-json-circe"
-  ).map("com.softwaremill.sttp.tapir" %% _ % "0.19.0-M13") ++ Seq("com.softwaremill.sttp.client3" %% "async-http-client-backend-cats" % "3.3.16")
+  ).map("com.softwaremill.sttp.tapir" %% _ % "0.20.0-M2") ++ Seq("com.softwaremill.sttp.client3" %% "async-http-client-backend-cats" % "3.3.18")
 
   val decline = Seq(
     "decline-effect",
