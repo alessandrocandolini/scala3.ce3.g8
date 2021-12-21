@@ -1,7 +1,7 @@
 import munit.FunSuite
-import cli._
+import cli.*
 import cli.Args.readArgs
-import com.monovore.decline._
+import com.monovore.decline.*
 
 class OptsSpec extends FunSuite:
 

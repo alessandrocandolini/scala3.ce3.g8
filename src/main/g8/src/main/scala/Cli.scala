@@ -1,11 +1,11 @@
 package cli
 import com.monovore.decline.Opts
-import Args._
+import Args.*
 import com.monovore.decline.effect.CommandIOApp
 import com.monovore.decline.Opts
 import cats.effect.IO
 import cats.effect.ExitCode
-import cats.implicits._
+import cats.implicits.*
 
 enum Verbose derives CanEqual:
   case Verbose

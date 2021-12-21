@@ -1,11 +1,11 @@
 import cats.effect.{IO, IOApp}
 import cats.effect.std.Console
 import cats.Show
-import cli._
+import cli.*
 import com.monovore.decline.Opts
-import fs2._
+import fs2.*
 import cats.Functor
-import utils._
+import utils.*
 import utils.simpleConsole
 
 object Main extends CommandIOAppSimple(
