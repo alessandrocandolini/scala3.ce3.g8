@@ -3,14 +3,14 @@ import org.scalacheck.Properties
 import org.scalacheck.Arbitrary
 import org.scalacheck.Prop.forAll
 import munit.{CatsEffectSuite, ScalaCheckEffectSuite}
-import org.scalacheck.effect.PropF._
-import cats.effect._
-import fs2._
+import org.scalacheck.effect.PropF.*
+import cats.effect.*
+import fs2.*
 import org.scalacheck.Gen
 import cats.data.State
 import cats.data.StateT
 import cats.Show
-import utils._
+import utils.*
 import munit.ScalaCheckSuite
 
 class PrintLeftPropertiesEffectful extends ScalaCheckEffectSuite:
