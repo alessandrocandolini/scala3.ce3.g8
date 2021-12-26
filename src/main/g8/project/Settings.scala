@@ -61,6 +61,10 @@ object Dependencies {
     "decline"
   ).map("com.monovore" %% _ % "2.2.0")
 
+  val config = Seq(
+    "pureconfig-core"
+  ).map("com.github.pureconfig" %%  _ % "0.17.1" )
+
   val scalacheckEffect = Seq(
     "scalacheck-effect",
     "scalacheck-effect-munit"
@@ -68,7 +72,7 @@ object Dependencies {
     "org.typelevel" %% _ % "1.0.3"
   )
 
-  val dependencies = circe ++ fs2 ++ cats ++ postgres ++ tapir ++ decline
+  val dependencies = circe ++ fs2 ++ cats ++ postgres ++ tapir ++ decline ++ config
 
   val testDependencies = (Seq(
     "org.scalacheck" %% "scalacheck" % "1.15.4",

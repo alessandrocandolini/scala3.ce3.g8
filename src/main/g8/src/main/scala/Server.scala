@@ -15,8 +15,8 @@ import cats.effect.ExitCode
 import org.http4s.HttpRoutes
 import sttp.tapir.server.http4s.Http4sServerInterpreter
 import org.http4s.blaze.server.BlazeServerBuilder
-import scala.language.unsafeNulls
 import status.StatusEndpoint.*
+import config.*
 
 object Server:
 
@@ -25,10 +25,12 @@ object Server:
 
   val routes = statusRoutes.orNotFound
 
-  val program: Args => IO[Unit] = args =>
-    BlazeServerBuilder[IO]
-      .bindHttp(args.port, "localhost")
-      .withHttpApp(routes)
-      .serve
-      .compile
-      .drain
+  val program: Args => IO[Unit] = _ =>
+    Config.readConfigOrThrow[IO].flatMap { c =>
+      BlazeServerBuilder[IO]
+        .bindHttp(c.port, c.host)
+        .withHttpApp(routes)
+        .serve
+        .compile
+        .drain
+    }
