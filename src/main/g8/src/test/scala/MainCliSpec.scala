@@ -13,7 +13,7 @@ import cats.Show
 import utils.*
 import munit.ScalaCheckSuite
 
-class PrintLeftPropertiesEffectful extends ScalaCheckEffectSuite:
+class PrintLeftPropertiesEffectful extends CatsEffectSuite with ScalaCheckEffectSuite:
 
   val initialState = MockConsole(List.empty)
 
