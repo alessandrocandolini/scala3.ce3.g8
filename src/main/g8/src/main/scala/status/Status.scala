@@ -1,3 +1,4 @@
+package status
 import cats.effect.{IO, IOApp}
 import cats.effect.std.Console
 import cats.implicits.*
@@ -16,15 +17,18 @@ import org.http4s.HttpRoutes
 import sttp.tapir.server.http4s.Http4sServerInterpreter
 import org.http4s.blaze.server.BlazeServerBuilder
 import scala.language.unsafeNulls
-import status.StatusEndpoint.*
+import sttp.tapir.server.ServerEndpoint
 
-object Main extends CommandIOAppSimple(
-  name = "$project_name$",
-  header = "$project_name$",
-  version = "0.1"
-):
+case class StatusResponse(status: String) derives CanEqual, MyCodecAsObject
 
-  override def run: Opts[IO[Unit]] = Args.readArgs.map(program)
+object StatusEndpoint:
+  val ok: StatusResponse = StatusResponse("ok")
 
-  val program: Args => IO[Unit] = args =>
-    Cli.program(args) *> Server.program(args)
+  val endpoint: PublicEndpoint[Unit, Nothing, StatusResponse, Any] =
+    infallibleEndpoint.get
+      .in("status")
+      .out(jsonBody[StatusResponse])
+
+  val handler: Unit => IO[Either[Nothing, StatusResponse]] = _ => IO.pure(Right(ok))
+
+  val fullEndpoint = endpoint.serverLogic(handler)

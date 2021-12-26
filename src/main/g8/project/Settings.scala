@@ -36,16 +36,25 @@ object Dependencies {
     "org.typelevel" %% "cats-effect" % "3.3.1"
   )
 
-  val db = Seq(
+  val postgres = Seq(
     "org.postgresql" % "postgresql" % "42.3.1",
     "org.tpolecat" %% "skunk-core" % "0.2.3"
   )
 
-  val http = Seq(
+  val tapirVersion = "0.20.0-M3"
+  val tapirNamespace = "com.softwaremill.sttp.tapir"
+
+  val tapir = Seq(
     "tapir-core",
     "tapir-sttp-client",
+    "tapir-http4s-server",
     "tapir-json-circe"
-  ).map("com.softwaremill.sttp.tapir" %% _ % "0.20.0-M2") ++ Seq("com.softwaremill.sttp.client3" %% "async-http-client-backend-cats" % "3.3.18")
+  ).map(tapirNamespace%% _ % tapirVersion) ++ Seq("com.softwaremill.sttp.client3" %% "async-http-client-backend-cats" % "3.3.18")
+
+
+  val tapirTest = Seq(
+     "tapir-server-tests"
+    ).map(tapirNamespace %% _ % tapirVersion)
 
   val decline = Seq(
     "decline-effect",
@@ -59,12 +68,12 @@ object Dependencies {
     "org.typelevel" %% _ % "1.0.3"
   )
 
-  val dependencies = circe ++ fs2 ++ cats ++ db ++ http ++ decline
+  val dependencies = circe ++ fs2 ++ cats ++ postgres ++ tapir ++ decline
 
   val testDependencies = (Seq(
     "org.scalacheck" %% "scalacheck" % "1.15.4",
     "org.typelevel" %% "munit-cats-effect-3" % "1.0.3"
-  ) ++ scalacheckEffect).map(_ % "it,test")
+  ) ++ scalacheckEffect ++ tapirTest).map(_ % "it,test")
 
 
 }
