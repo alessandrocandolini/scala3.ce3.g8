@@ -1,23 +1,14 @@
 package status
-import cats.effect.{IO, IOApp}
-import cats.effect.std.Console
+import cats.Applicative
+import cats.effect.*
 import cats.implicits.*
-import cats.Show
-import com.monovore.decline.Opts
-import fs2.*
-import cats.Functor
-import utils.*
-import cli.*
-import utils.simpleConsole
 import sttp.tapir.*
-import sttp.tapir.json.circe.*
 import sttp.tapir.generic.auto.*
-import cats.effect.ExitCode
-import org.http4s.HttpRoutes
-import sttp.tapir.server.http4s.Http4sServerInterpreter
-import org.http4s.blaze.server.BlazeServerBuilder
-import scala.language.unsafeNulls
+import sttp.tapir.json.circe.*
 import sttp.tapir.server.ServerEndpoint
+import utils.MyCodecAsObject
+
+import scala.language.unsafeNulls
 
 case class StatusResponse(status: String) derives CanEqual, MyCodecAsObject
 

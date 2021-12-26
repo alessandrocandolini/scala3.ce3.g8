@@ -1,11 +1,10 @@
 package config
 
-import cats.Applicative
+import cats.{Applicative, Monad}
 import cats.effect.Sync
-import org.http4s.server.{ServerBuilder, defaults}
-import pureconfig.*
+import cats.implicits.toFlatMapOps
+import pureconfig.{ConfigSource, ConfigReader}
 import pureconfig.error.ConfigReaderFailures
-import cats.implicits.*
 
 case class Config(
   port: Int,
