@@ -6,7 +6,7 @@ on:
   pull_request:
     branches: [ main ]
 
-concurrency: 
+concurrency:
   group: ${{ github.ref }}
   cancel-in-progress: true
 
@@ -25,7 +25,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Setup Java 
+      - name: Setup Java
         uses: actions/setup-java@v2
         with:
           java-version: '11'
@@ -33,3 +33,10 @@ jobs:
 
       - name: Build project
         run: sbt clean test
+
+      - name: Run the template through sbt
+        run: |
+          sbt new file://$(pwd) --name=testproject --force
+          cd testproject
+          sbt clean assembly
+        shell: bash
