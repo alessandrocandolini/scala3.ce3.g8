@@ -7,7 +7,7 @@ import cli.Args
 object Main extends CommandIOAppSimple(
   name = "$project_name$",
   header = "$project_name$",
-  version = "0.1"
+  version = "$version$"
 ):
 
   override def run: Opts[IO[Unit]] = Args.readArgs.map(program)

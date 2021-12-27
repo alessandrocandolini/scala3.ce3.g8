@@ -12,8 +12,8 @@ lazy val root = project
   .settings(commonSettings)
   .settings(
     name := "$project_name$",
-    version := "0.1",
-    scalaVersion := "3.1.0",
+    version := "$version$",
+    scalaVersion := "$scala_version$",
     assembly / test := Def
       .sequential(Test / test, IntegrationTest / test)
       .value,
@@ -26,6 +26,7 @@ lazy val root = project
 
 val customMergeStrategy: String => MergeStrategy = {
   case r if r.endsWith(".conf")            => MergeStrategy.concat
+  // https://stackoverflow.com/questions/46287789/running-an-uber-jar-from-sbt-assembly-results-in-error-could-not-find-or-load-m
   case PathList("META-INF", "MANIFEST.MF") => MergeStrategy.discard
   case _                                   => MergeStrategy.first
 }
