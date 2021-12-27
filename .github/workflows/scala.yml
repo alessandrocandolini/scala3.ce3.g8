@@ -33,7 +33,8 @@ jobs:
 
       - name: Run the template through sbt new 
         run: |
-          sbt new file://$(pwd) --name=testproject --force 
+          cs install giter8
+          g8 file://$(pwd) --name=testproject --force 
         shell: bash
 
       - name: Run tests in the generated project
