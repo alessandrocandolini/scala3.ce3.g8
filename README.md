@@ -25,10 +25,13 @@ The generated project is setup to run **unit and integration tests** (with `sbt 
 
 The generated project contains a simple `.github/workflow/scala.yml` configuration to setup **github actions** to run `sbt assembly`. It's a very basic setup, completely independent from the scala project. If you are not using github, just remove the `.github` folder. If you want a more advanced setup, you might be interested in exploring [sbt-github-actions](https://github.com/djspiewak/sbt-github-actions). 
 
-In the future i would like to add 
+## Todo 
+
+* the CI is relying on `g8test`, unfortunately this does not easily detect issues like ` An unexpected error occurred while processing the template. Check that all literal '$' are properly escaped with '\$'` due to https://github.com/foundweekends/giter8/issues/334
 * scaffolding (to generate a cli or a server) 
 * improve github actions pipeline
 * consider using [make-g8](https://github.com/arturopala/make-it-g8)
+
 
 
 ## Usage of this template
