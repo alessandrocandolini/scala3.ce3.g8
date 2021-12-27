@@ -31,12 +31,13 @@ jobs:
           java-version: '11'
           distribution: 'adopt'
 
-      - name: Build project
-        run: sbt clean test
-
-      - name: Run the template through sbt
+      - name: Run the template through sbt new 
         run: |
-          sbt new file://$(pwd) --name=testproject --force
-          cd testproject
+          sbt new file://$(pwd) --name=testproject --force && \
+          cd testproject && \
           sbt clean assembly
         shell: bash
+      
+      - name: Run g8test
+        run: sbt clean test
+
