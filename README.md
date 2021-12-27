@@ -4,7 +4,9 @@
 
 Unofficial opinionated [Giter8][g8] template for sbt-based scala 3 projects making usage of the typelevel stack. The template can be helpful for both web servers and CLIs. 
 
-**Dependencies**: 
+## Description 
+
+The generated project will include the following **dependencies**: 
 * [cats-core](https://typelevel.org/cats/) and [cats-effects 3.x](https://typelevel.org/cats-effect/)
 * [fs2 3.x](https://fs2.io/) for effectful, resource-safe streams 
 * [tapir](https://tapir.softwaremill.com/en/latest/) to describe HTTP endpoints as values and derive implementation of client, server etc; compatible with http4s and sttp, and many others 
@@ -13,16 +15,15 @@ Unofficial opinionated [Giter8][g8] template for sbt-based scala 3 projects maki
 * [skunk](https://github.com/tpolecat/skunk) for postgresql database access 
 * [scalacheck](https://www.scalacheck.org/) for property-based testing, with [scalacheck-effect](https://github.com/typelevel/scalacheck-effect) to test effectful code 
 
-**sbt-plugins**:  
+the following **sbt-plugins**:
 * [scalafmt](https://scalameta.org/scalafmt/) configuration (via [sbt-scalafmt](https://github.com/scalameta/sbt-scalafmt) sbt plugin)
 * [sbt-assembly](https://github.com/sbt/sbt-assembly) plugin to generate "fat" jars (remove it if the goal is to build a library)
-* opinionated compiler options (eg, `-language:strictEquality"`, `-Yexplicit-nulls`, `-source:future`, etc) 
 
-**tests:**: 
-The generated project is setup to run unit and integration tests (with `sbt test` and `sbt it:test` respectively) 
+and will setup opinionated **compiler options**, eg, `-language:strictEquality"`, `-Yexplicit-nulls`, `-source:future`, etc. 
 
-**ci/cd**: 
-The generated project contains a simple `.github/workflow/scala.yml` configuration to setup github actions to run `sbt assembly`. It's a very basic setup, completely independent from the scala project. If you are not using github, just remove the `.github` folder. If you want a more advanced setup, you might be interested in exploring [sbt-github-actions](https://github.com/djspiewak/sbt-github-actions). 
+The generated project is setup to run **unit and integration tests** (with `sbt test` and `sbt it:test` respectively) 
+
+The generated project contains a simple `.github/workflow/scala.yml` configuration to setup **github actions** to run `sbt assembly`. It's a very basic setup, completely independent from the scala project. If you are not using github, just remove the `.github` folder. If you want a more advanced setup, you might be interested in exploring [sbt-github-actions](https://github.com/djspiewak/sbt-github-actions). 
 
 In the future i would like to add 
 * scaffolding (to generate a cli or a server) 
@@ -32,19 +33,19 @@ In the future i would like to add
 
 ## Usage of this template
 
-To generate a new project using `sbt` from the code on `main` branch
+To generate a new project from the code on `main` branch using `sbt`, use
 ```
 sbt new git@github.com:alessandrocandolini/scala3.ce3.g8.git  --name=<project name>
 ```
 
-If g8 is installed on the machine (see next section), it is also possible yo generate a new project from a local clone of the repo
+If g8 is installed on the machine (see next section), it is also possible to generate a new project from a local clone of the repo
 ```
 g8 file:///<local-checkout-dir>/scala3.ce3.g8/ --name=<project name>
 ```
 
-For other options see http://www.foundweekends.org/giter8/usage.html#Usage
+See http://www.foundweekends.org/giter8/usage.html#Usage for more details 
 
-## Install Giter8
+### Install Giter8
 
 On MAC OS X, Giter8 is available via the Homebrew package manager:
 ```
@@ -53,6 +54,16 @@ brew install giter8
 ```
 
 For more options, refer to the original documentation http://www.foundweekends.org/giter8/setup.html
+
+## Giter8 crash course
+
+
+* Giter8 generates a project that has exactly the same structure of the [src/main/g8](src/main/g8) folder
+* template variables are defined in the [default.properties](src/main/g8/default.properties) file 
+* template variables can be accessed as `$name of the variable$` (ie, between `$`) from everywhere
+* `$` is the reserved symbol, whenever you need to use a `$` for purposes other than referring to a template variable be sure to escape it as `\$`; this is a typical source of errors
+
+A more comprehensive guide here: http://www.foundweekends.org/giter8/Contents+in+Depth.html
 
 Template license
 ----------------
