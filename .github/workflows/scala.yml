@@ -33,4 +33,4 @@ jobs:
           distribution: 'adopt'
 
       - name: Build project
-        run: sbt g8Test
+        run: sbt clean test

@@ -17,5 +17,6 @@ lazy val root = (project in file("."))
       "-Dfile.encoding=UTF-8",
       "-Dsbt.override.build.repos=true",
       "-Dsbt.repository.config=./project/repositories"
-    )
+    ),
+    scriptedBufferLog := false
   )
