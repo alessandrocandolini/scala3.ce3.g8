@@ -1,5 +1,7 @@
 # scala3.ce3.g8
 
+[![Scala CI](https://github.com/alessandrocandolini/scala3.ce3.g8/actions/workflows/scala.yml/badge.svg)](https://github.com/alessandrocandolini/scala3.ce3.g8/actions/workflows/scala.yml)
+
 Unofficial opinionated [Giter8][g8] template for sbt-based scala 3 projects making usage of the typelevel stack. The template can be helpful for both web servers and CLIs. 
 
 **Dependencies**: 
