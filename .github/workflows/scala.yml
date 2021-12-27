@@ -37,5 +37,5 @@ jobs:
       - name: Run the template through sbt new 
         run: |
           sbt new file://$(pwd) --name=testproject --force 
-          cd testproject && sbt clean assembly¬
+          cd testproject && sbt clean assembly
         shell: bash
