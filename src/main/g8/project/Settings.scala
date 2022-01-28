@@ -29,11 +29,11 @@ object Dependencies {
   val fs2 = Seq(
     "fs2-core",
     "fs2-io"
-  ).map("co.fs2" %% _ % "3.2.3")
+  ).map("co.fs2" %% _ % "3.2.4")
 
   val cats = Seq(
     "org.typelevel" %% "cats-core" % "2.7.0",
-    "org.typelevel" %% "cats-effect" % "3.3.2"
+    "org.typelevel" %% "cats-effect" % "3.3.4"
   )
 
   val postgres = Seq(
@@ -41,7 +41,7 @@ object Dependencies {
     "org.tpolecat" %% "skunk-core" % "0.2.3"
   )
 
-  val tapirVersion = "0.20.0-M3"
+  val tapirVersion = "0.20.0-M6"
   val tapirNamespace = "com.softwaremill.sttp.tapir"
 
   val tapir = Seq(
