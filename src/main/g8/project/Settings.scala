@@ -41,7 +41,7 @@ object Dependencies {
     "org.tpolecat" %% "skunk-core" % "0.2.3"
   )
 
-  val tapirVersion = "0.20.0-M6"
+  val tapirVersion = "0.20.0-M3"
   val tapirNamespace = "com.softwaremill.sttp.tapir"
 
   val tapir = Seq(
