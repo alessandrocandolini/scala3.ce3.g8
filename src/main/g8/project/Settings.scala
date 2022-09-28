@@ -51,6 +51,11 @@ object Dependencies {
     "tapir-json-circe"
   ).map(tapirNamespace%% _ % tapirVersion) ++ Seq("com.softwaremill.sttp.client3" %% "async-http-client-backend-cats" % "3.3.18")
 
+  val http4s = Seq(
+    "org.http4s" %% "http4s-core" % "0.23.16",
+    "org.http4s" %% "http4s-blaze-server" % "0.23.12"
+  )
+
 
   val tapirTest = Seq(
      "tapir-server-tests"
@@ -72,7 +77,7 @@ object Dependencies {
     "org.typelevel" %% _ % "1.0.3"
   )
 
-  val dependencies = circe ++ fs2 ++ cats ++ postgres ++ tapir ++ decline ++ config
+  val dependencies = circe ++ fs2 ++ cats ++ postgres ++ tapir ++ decline ++ config ++ http4s
 
   val testDependencies = (Seq(
     "org.scalacheck" %% "scalacheck" % "1.15.4",
