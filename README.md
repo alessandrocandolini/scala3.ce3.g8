@@ -59,10 +59,10 @@ The generated project contains a simple `.github/workflow/scala.yml` configurati
 
 ## Todo 
 
-* the CI is relying on `g8test`, unfortunately this does not easily detect issues like ` An unexpected error occurred while processing the template. Check that all literal '$' are properly escaped with '\$'` due to https://github.com/foundweekends/giter8/issues/334
+* ~the CI is relying on `g8test`, unfortunately this does not easily detect issues like ` An unexpected error occurred while processing the template. Check that all literal '$' are properly escaped with '\$'` due to https://github.com/foundweekends/giter8/issues/334~ DONE 
 * scaffolding (to generate a cli or a server) 
 * improve github actions pipeline
-* consider using [make-g8](https://github.com/arturopala/make-it-g8)
+* ~consider using [make-g8](https://github.com/arturopala/make-it-g8)~ i've tried it in another project and didn't really help me that much 
 
 ## Giter8 crash course
 
