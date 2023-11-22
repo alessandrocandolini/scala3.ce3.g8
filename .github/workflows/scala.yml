@@ -42,6 +42,6 @@ jobs:
 
       - name: Run the template through sbt new (server=false)
         run: |
-          sbt new file://$(pwd) --name=testproject --generate_github_actions=true --package=com.alessandrocandolini --is_server=false --force
-          cd testproject && sbt clean test it/test assembly
+          sbt new file://$(pwd) --name=testproject2 --generate_github_actions=true --package=com.alessandrocandolini --is_server=false --force
+          cd testproject2 && sbt clean test it/test assembly
         shell: bash
