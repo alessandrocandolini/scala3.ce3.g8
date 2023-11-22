@@ -13,12 +13,13 @@ lazy val root = project
   .settings(
     name := "$project_name$",
     version := "$version$",
-    scalaVersion := "$scala_version$",
+    scalaVersion := Versions.scala,
     assembly / test := Def
       .sequential(Test / test, IntegrationTest / test)
       .value,
     assembly / assemblyMergeStrategy := customMergeStrategy,
     assembly / assemblyJarName := "$jar_filename$",
+    assembly / assemblyOutputPath    := file(s"./target/\${(assembly/assemblyJarName).value}"),
     scalafmtOnCompile := true,
     libraryDependencies ++= (dependencies ++ testDependencies)
   )
@@ -30,5 +31,3 @@ val customMergeStrategy: String => MergeStrategy = {
   case PathList("META-INF", "MANIFEST.MF") => MergeStrategy.discard
   case _                                   => MergeStrategy.first
 }
-
-IntegrationTest / parallelExecution := false
