@@ -2,7 +2,7 @@ package $package$.config
 import munit.FunSuite
 import pureconfig.*
 
-class ConfigSpec extends FunSuite:
+class SettingsSpec extends FunSuite:
 
   test("fail to parse invalid input") {
     assert(ConfigSource.string("{}").load[Settings].isLeft)
