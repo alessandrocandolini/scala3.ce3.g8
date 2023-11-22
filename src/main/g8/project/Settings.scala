@@ -35,7 +35,7 @@ object Dependencies {
     val fs2 = Seq(
       "fs2-core",
       "fs2-io"
-    ).map("co.fs2" %% _ % "3.3.0")
+    ).map("co.fs2" %% _ % Versions.fs2)
 
     val pureConfig = Seq(
       "pureconfig-core", "pureconfig-cats-effect"
@@ -54,7 +54,7 @@ object Dependencies {
     val decline = Seq(
       "decline-effect",
       "decline"
-    ).map("com.monovore" %% _ % "2.3.1")
+    ).map("com.monovore" %% _ % Versions.decline)
 
     val advanced = Seq(
       "io.github.arainko" %% "ducktape" % Versions.ducktape,
@@ -63,8 +63,8 @@ object Dependencies {
     )
 
     val postgres = Seq(
-      "org.postgresql" % "postgresql" % "42.5.0",
-      "org.tpolecat" %% "skunk-core" % "0.3.2"
+      "org.postgresql" % "postgresql" % Versions.postgres,
+      "org.tpolecat" %% "skunk-core" % Versions.skunkg
     )
     $if(is_server.truthy)$
     val http4s = Seq(
