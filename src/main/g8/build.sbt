@@ -6,6 +6,9 @@ name := "$project_name$"
 version := "$version$"
 ThisBuild / scalaVersion := Versions.scala
 ThisBuild / scalafmtOnCompile := true
+ThisBuild / Compile / javaOptions += "-Dconfig.resource=dev.conf"
+ThisBuild / Test / javaOptions += "-Dconfig.resource=test.conf"
+ThisBuild / fork := true
 
 lazy val root = project
   .in(file("."))
