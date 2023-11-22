@@ -14,4 +14,8 @@ object Main extends CommandIOAppSimple(
   override def run: Opts[IO[Unit]] = Args.readArgs.map(program)
 
   val program: Args => IO[Unit] = args =>
-    Cli.program(args) *> Server.program(args)
+    $if(is_server.truthy)$
+      Server.program(args)
+    $else$
+      Cli.program(args)
+    $endif$

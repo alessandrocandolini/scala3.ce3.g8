@@ -44,7 +44,9 @@ object Dependencies {
     val tapir = Seq(
       "tapir-core",
       "tapir-sttp-client",
+      $if(is_server.truthy)$
       "tapir-http4s-server",
+      $endif$
       "tapir-json-circe").map(
       "com.softwaremill.sttp.tapir" %% _ % Versions.tapir
     )
@@ -64,10 +66,12 @@ object Dependencies {
       "org.postgresql" % "postgresql" % "42.5.0",
       "org.tpolecat" %% "skunk-core" % "0.3.2"
     )
+    $if(is_server.truthy)$
     val http4s = Seq(
       "org.http4s" %% "http4s-server" % Versions.http4s,
       "org.http4s" %%  "http4s-blaze-server" % Versions.http4sBlaze,
     )
+    $endif$
 
     val circe = Seq("circe-core").map("io.circe" %% _ % Versions.circe) ++
        Seq("io.circe" %% "circe-fs2" % "0.14.0")
@@ -78,7 +82,7 @@ object Dependencies {
 
     val nettyOverrides = Seq("netty-handler", "netty-codec-http2").map("io.netty" % _  % Versions.netty)
 
-    cats ++ fs2 ++ pureConfig ++ tapir ++ http4s ++ circe ++ sttp ++ decline ++ advanced ++ postgres ++ nettyOverrides
+    cats ++ fs2 ++ pureConfig ++ tapir ++$if(is_server.truthy)$http4s ++$endif$ circe ++ sttp ++ decline ++ advanced ++ postgres ++ nettyOverrides
 
   }
 
@@ -88,9 +92,11 @@ object Dependencies {
       "munit"
     ).map("org.scalameta" %% _ % Versions.munit)
 
+    $if(is_server.truthy)$
     val tapir = Seq(
      "tapir-server-tests"
     ).map("com.softwaremill.sttp.tapir" %% _ % Versions.tapir)
+    $endif$
 
     val scalacheck = Seq(
       "org.scalacheck" %% "scalacheck"                  % Versions.scalacheck,
@@ -103,7 +109,7 @@ object Dependencies {
       "org.typelevel"   %% "scalacheck-effect-munit"        % Versions.scalacheckEffect,
     )
 
-    scalacheck ++ munit ++ extras ++ tapir
+    scalacheck ++ munit ++ extras $if(is_server.truthy)$++ tapir$endif$
   }.map(_ % Test)
 
 }
@@ -122,8 +128,10 @@ object Versions {
   val iron               = "2.3.0"
 
   val tapir              = "1.9.0"
+  $if(is_server.truthy)$
   val http4s             = "0.23.24"
   val http4sBlaze        = "0.23.15"
+  $endif$
   val circe              = "0.14.6"
   val sttp               = "3.9.1"
   val netty              = "4.1.101.Final"

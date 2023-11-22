@@ -34,8 +34,14 @@ jobs:
       - name: Run g8test
         run: sbt clean test
 
-      - name: Run the template through sbt new
+      - name: Run the template through sbt new (server=true)
         run: |
           sbt new file://$(pwd) --name=testproject --generate_github_actions=true --package=com.alessandrocandolini --is_server=true --force
+          cd testproject && sbt clean test it/test assembly
+        shell: bash
+
+      - name: Run the template through sbt new (server=false)
+        run: |
+          sbt new file://$(pwd) --name=testproject --generate_github_actions=true --package=com.alessandrocandolini --is_server=false --force
           cd testproject && sbt clean test it/test assembly
         shell: bash
