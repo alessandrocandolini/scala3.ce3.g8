@@ -1,12 +1,11 @@
 package $package$.config
 import munit.FunSuite
-import $package$.config.*
 import pureconfig.*
 
 class ConfigSpec extends FunSuite:
 
   test("fail to parse invalid input") {
-    assert(ConfigSource.string("{}").load[Config].isLeft)
+    assert(ConfigSource.string("{}").load[Settings].isLeft)
   }
 
   test("correctly parse valid input") {
@@ -17,16 +16,16 @@ class ConfigSpec extends FunSuite:
         |host = "localhost"
         """.stripMargin
 
-    val expected: Config = Config(
+    val expected: Settings = Settings(
       port = 1212,
       host = "localhost"
     )
 
-    val actual = ConfigSource.string(s).load[Config]
+    val actual = ConfigSource.string(s).load[Settings]
     assertEquals(actual, Right(expected))
 
   }
 
   test("can parse actual application.conf successfully") {
-    assert(Config.readDefaultConfig.isRight)
+    assert(Settings.readDefaultConfig.isRight)
   }
