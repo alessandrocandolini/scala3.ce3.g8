@@ -2,28 +2,20 @@ import Dependencies._
 import Settings._
 import sbtassembly.MergeStrategy
 
-name := """$name$"""
-version := "1.0-SNAPSHOT"
+name := "$project_name$"
+version := "$version$"
+ThisBuild / scalaVersion := Versions.scala
+ThisBuild / scalafmtOnCompile := true
 
 lazy val root = project
   .in(file("."))
-  .configs(IntegrationTest)
-  .settings(Defaults.itSettings)
   .settings(commonSettings)
   .settings(
-    name := "$project_name$",
-    version := "$version$",
-    scalaVersion := Versions.scala,
-    assembly / test := Def
-      .sequential(Test / test, IntegrationTest / test)
-      .value,
     assembly / assemblyMergeStrategy := customMergeStrategy,
     assembly / assemblyJarName := "$jar_filename$",
     assembly / assemblyOutputPath    := file(s"./target/\${(assembly/assemblyJarName).value}"),
-    scalafmtOnCompile := true,
     libraryDependencies ++= (dependencies ++ testDependencies)
   )
-
 
 val customMergeStrategy: String => MergeStrategy = {
   case r if r.endsWith(".conf")            => MergeStrategy.concat
@@ -31,3 +23,7 @@ val customMergeStrategy: String => MergeStrategy = {
   case PathList("META-INF", "MANIFEST.MF") => MergeStrategy.discard
   case _                                   => MergeStrategy.first
 }
+
+// make everything in test configuration available to it:test configuration.
+lazy val it = (project in file("it"))
+    .dependsOn(root % "test->test")

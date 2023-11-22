@@ -104,7 +104,7 @@ object Dependencies {
     )
 
     scalacheck ++ munit ++ extras ++ tapir
-  }.map(_ % "it,test")
+  }.map(_ % Test)
 
 }
 
