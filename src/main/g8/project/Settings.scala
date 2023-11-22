@@ -64,7 +64,7 @@ object Dependencies {
 
     val postgres = Seq(
       "org.postgresql" % "postgresql" % Versions.postgres,
-      "org.tpolecat" %% "skunk-core" % Versions.skunkg
+      "org.tpolecat" %% "skunk-core" % Versions.skunk
     )
     $if(is_server.truthy)$
     val http4s = Seq(
