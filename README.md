@@ -20,8 +20,9 @@ sbt new file:///<local-checkout-dir>/scala3.ce3.g8/  --name=<project name> --gen
 
 Variables:
 * `name`: name of the generated folder and project name
-* `generate_github_actions` (true, false): tell g8 whether to also generate github actions (true by default)
 * `package`: package name (default: `com.alessandrocandolini`). The template does NOT attempt at appending the project name as last part of the package, so if you want the package to contain also the project name be sure it's included
+* `generate_github_actions` (true, false): tell g8 whether to also generate github actions (true by default)
+* `is_server` (true, false): tell g8 whether to generate the server part, not the CLI part (true by default). Server part includes a healthcheck endpoint and a docker image
 
 ### Using g8
 

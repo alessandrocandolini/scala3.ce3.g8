@@ -1,7 +1,7 @@
 package $package$
 
 import cats.effect.{IO, IOApp}
-import $package$.config.Config
+import $package$.config.Settings
 import org.http4s.HttpRoutes
 import org.http4s.blaze.server.BlazeServerBuilder
 import status.StatusEndpoint.fullEndpoint
