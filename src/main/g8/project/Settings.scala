@@ -38,7 +38,7 @@ object Dependencies {
     ).map("co.fs2" %% _ % "3.3.0")
 
     val pureConfig = Seq(
-      "pureconfig-core"
+      "pureconfig-core", "pureconfig-cats-effect"
     ).map("com.github.pureconfig" %% _ % Versions.pureConfig)
 
     val tapir = Seq(

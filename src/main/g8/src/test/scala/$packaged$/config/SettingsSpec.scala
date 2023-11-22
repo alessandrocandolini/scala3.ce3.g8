@@ -27,5 +27,5 @@ class SettingsSpec extends FunSuite:
   }
 
   test("can parse actual application.conf successfully") {
-    assert(Settings.readDefaultConfig.isRight)
+    assert(ConfigSource.default.load[Settings].isRight)
   }
