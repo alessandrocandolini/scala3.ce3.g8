@@ -1,15 +1,12 @@
-import cats.effect.*
-import cats.implicits.*
-import cats.Applicative
-import cli.Args
-import config.Config
+package $package$
+
+import cats.effect.IO
+import $package$.cli.Args
+import $package$.config.Config
 import org.http4s.HttpRoutes
 import org.http4s.blaze.server.BlazeServerBuilder
 import status.StatusEndpoint.*
 import sttp.tapir.*
-import sttp.tapir.generic.auto.*
-import sttp.tapir.json.circe.*
-import sttp.tapir.server.ServerEndpoint
 import sttp.tapir.server.http4s.Http4sServerInterpreter
 
 object Server:

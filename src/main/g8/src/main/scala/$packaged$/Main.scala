@@ -1,8 +1,9 @@
+package $package$
+
 import cats.effect.IO
-import cats.implicits.*
 import com.monovore.decline.Opts
-import utils.{simpleConsole,CommandIOAppSimple}
-import cli.Args
+import $package$.cli.Args
+import $package$.utils.CommandIOAppSimple
 
 object Main extends CommandIOAppSimple(
   name = "$project_name$",

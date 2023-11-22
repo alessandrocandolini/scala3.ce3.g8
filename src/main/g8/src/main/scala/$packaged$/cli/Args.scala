@@ -1,4 +1,4 @@
-package cli
+package $package$.cli
 
 import com.monovore.decline.Opts
 import cats.implicits.*

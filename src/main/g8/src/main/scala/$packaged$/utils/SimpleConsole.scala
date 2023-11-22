@@ -1,11 +1,9 @@
-package utils;
+package $package$.utils
 
 import cats.effect.std.Console
 import cats.Show
 import cats.Applicative
 import fs2.Stream
-import io.circe.{Codec, Decoder, HCursor, JsonObject}
-import scala.deriving.Mirror
 
 trait SimpleConsole[F[_]]:
   def println[A: Show](a: A): F[Unit]

@@ -1,9 +1,11 @@
+package $package$
+
 import cats.{Functor, Show}
 import cats.effect.*
 import cli.Args
 import fs2.*
-import utils.*
-import utils.simpleConsole
+import $package$.utils.*
+import $package$.utils.simpleConsole
 
 object Cli:
 

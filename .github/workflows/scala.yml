@@ -36,6 +36,6 @@ jobs:
 
       - name: Run the template through sbt new
         run: |
-          sbt new file://$(pwd) --name=testproject --force
-          cd testproject && sbt clean assembly
+          sbt new file://$(pwd) --name=testproject --generate_github_actions=true --package=com.alessandrocandolini --force
+          cd testproject && sbt clean test it/test assembly
         shell: bash

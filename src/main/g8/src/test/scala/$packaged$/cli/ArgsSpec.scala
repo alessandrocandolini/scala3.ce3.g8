@@ -1,8 +1,8 @@
-package cli
+package $package$.cli
 
 import munit.FunSuite
-import cli.*
-import cli.Args.readArgs
+import $package$.cli.*
+import $package$.cli.Args.readArgs
 import com.monovore.decline.*
 
 class ArgsSpec extends FunSuite:

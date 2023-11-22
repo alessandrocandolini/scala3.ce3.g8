@@ -1,6 +1,6 @@
-package config
+package $package$.config
 import munit.FunSuite
-import config.*
+import $package$.config.*
 import pureconfig.*
 
 class ConfigSpec extends FunSuite:

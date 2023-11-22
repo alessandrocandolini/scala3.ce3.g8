@@ -1,9 +1,8 @@
-package utils;
+package $package$.utils
 import com.monovore.decline.effect.CommandIOApp
 import com.monovore.decline.Opts
 import cats.effect.IO
 import cats.effect.ExitCode
-import cats.implicits.*
 
 abstract class CommandIOAppSimple(
                                    name: String,

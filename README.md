@@ -10,17 +10,18 @@ Unofficial opinionated [Giter8][g8] template for **sbt-based scala 3** projects 
 
 Assuming `sbt` is available, generate a new project using 
 ```
-sbt new git@github.com:alessandrocandolini/scala3.ce3.g8.git  --name=<project name> --generate_github_actions=true
+sbt new git@github.com:alessandrocandolini/scala3.ce3.g8.git  --name=<project name> --generate_github_actions=true --package=com.alessandrocandolini
 ```
 
 or from a local clone of this repo 
 ```
-sbt new file:///<local-checkout-dir>/scala3.ce3.g8/  --name=<project name> --generate_github_actions=true
+sbt new file:///<local-checkout-dir>/scala3.ce3.g8/  --name=<project name> --generate_github_actions=true --package=com.alessandrocandolini
 ```
 
 Variables:
 * `name`: name of the generated folder and project name
 * `generate_github_actions` (true, false): tell g8 whether to also generate github actions (true by default) 
+* `package`: package name (default: `com.alessandrocandolini`). The template does NOT attempt at appending the project name as last part of the package, so if you want the package to contain also the project name be sure it's included
 
 ### Using g8 
 

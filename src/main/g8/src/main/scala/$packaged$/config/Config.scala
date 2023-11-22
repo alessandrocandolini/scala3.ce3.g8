@@ -1,6 +1,6 @@
-package config
+package $package$.config
 
-import cats.{Applicative, Monad}
+import cats.Applicative
 import cats.effect.Sync
 import cats.implicits.toFlatMapOps
 import pureconfig.{ConfigSource, ConfigReader}

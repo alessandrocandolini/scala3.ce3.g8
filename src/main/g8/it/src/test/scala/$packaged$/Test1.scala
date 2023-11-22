@@ -1,6 +1,7 @@
+package $package$
+
 import org.scalacheck.Properties
 import org.scalacheck.Prop.forAll
-import scala.language.adhocExtensions
 
 class Property1 extends Properties("hello"):
 

@@ -1,9 +1,8 @@
-package status
+package $package$.status
 import cats.effect.IO
 import sttp.tapir.json.circe.jsonBody
 import io.circe.Codec
-import sttp.tapir.server.ServerEndpoint
-import sttp.tapir.{PublicEndpoint, Schema, endpoint, infallibleEndpoint, path, statusCode, stringToPath}
+import sttp.tapir.{PublicEndpoint, Schema, infallibleEndpoint, stringToPath}
 
 import scala.language.unsafeNulls
 
