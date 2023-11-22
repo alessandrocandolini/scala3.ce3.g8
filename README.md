@@ -10,13 +10,17 @@ Unofficial opinionated [Giter8][g8] template for **sbt-based scala 3** projects 
 
 Assuming `sbt` is available, generate a new project using 
 ```
-sbt new git@github.com:alessandrocandolini/scala3.ce3.g8.git  --name=<project name>
+sbt new git@github.com:alessandrocandolini/scala3.ce3.g8.git  --name=<project name> --generate_github_actions=true
 ```
 
 or from a local clone of this repo 
 ```
-sbt new file:///<local-checkout-dir>/scala3.ce3.g8/  --name=<project name>
+sbt new file:///<local-checkout-dir>/scala3.ce3.g8/  --name=<project name> --generate_github_actions=true
 ```
+
+Variables:
+* `name`: name of the generated folder and project name
+* `generate_github_actions` (true, false): tell g8 whether to also generate github actions (true by default) 
 
 ### Using g8 
 
@@ -35,7 +39,7 @@ g8 file:///<local-checkout-dir>/scala3.ce3.g8/ --name=<project name>
 
 See http://www.foundweekends.org/giter8/usage.html#Usage for more details 
 
-## Description 
+## Structure of the generated project 
 
 The generated project includes the following **dependencies**: 
 * [cats-core](https://typelevel.org/cats/) and [cats-effects 3.x](https://typelevel.org/cats-effect/)
@@ -60,7 +64,7 @@ The generated project contains a simple `.github/workflow/scala.yml` configurati
 ## Todo 
 
 * ~the CI is relying on `g8test`, unfortunately this does not easily detect issues like ` An unexpected error occurred while processing the template. Check that all literal '$' are properly escaped with '\$'` due to https://github.com/foundweekends/giter8/issues/334~ DONE 
-* scaffolding (to generate a cli or a server) 
+* scaffolding (to conditionally generate either a cli or a server: i often need either one or the other) 
 * improve github actions pipeline
 * ~consider using [make-g8](https://github.com/arturopala/make-it-g8)~ i've tried it in another project and didn't really help me that much 
 
