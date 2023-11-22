@@ -1,16 +1,13 @@
 package status
-import cats.Applicative
-import cats.effect.*
-import cats.implicits.*
-import sttp.tapir.*
-import sttp.tapir.generic.auto.*
-import sttp.tapir.json.circe.*
+import cats.effect.IO
+import sttp.tapir.json.circe.jsonBody
+import io.circe.Codec
 import sttp.tapir.server.ServerEndpoint
-import utils.MyCodecAsObject
+import sttp.tapir.{PublicEndpoint, Schema, endpoint, infallibleEndpoint, path, statusCode, stringToPath}
 
 import scala.language.unsafeNulls
 
-case class StatusResponse(status: String) derives CanEqual, MyCodecAsObject
+case class StatusResponse(status: String) derives CanEqual, Codec.AsObject, Schema
 
 object StatusEndpoint:
   val ok: StatusResponse = StatusResponse("ok")
