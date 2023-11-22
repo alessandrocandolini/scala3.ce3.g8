@@ -13,7 +13,10 @@ object Settings {
       "-language:strictEquality",
       "-language:postfixOps",
       "-Yexplicit-nulls",
-      "-source:future"
+      "-source:future",
+      "-explain",
+      "-Wvalue-discard",
+      "-Wunused:all",
     )
   )
 
@@ -21,68 +24,117 @@ object Settings {
 
 object Dependencies {
 
-  val circe = Seq(
-    "io.circe" %% "circe-core"
-  ).map(_ % "0.15.0-M1") ++
-    Seq("io.circe" %% "circe-fs2" % "0.14.0")
+  val dependencies : Seq[ModuleID] = {
 
-  val fs2 = Seq(
-    "fs2-core",
-    "fs2-io"
-  ).map("co.fs2" %% _ % "3.3.0")
+    val cats = Seq(
+      "org.typelevel" %% "cats-core" % Versions.cats,
+      "org.typelevel" %% "cats-effect" % Versions.catsEffect,
+      "org.typelevel" %% "kittens" % Versions.kittens
+    )
 
-  val cats = Seq(
-    "org.typelevel" %% "cats-core" % "2.8.0",
-    "org.typelevel" %% "cats-effect" % "3.3.4"
-  )
+    val fs2 = Seq(
+      "fs2-core",
+      "fs2-io"
+    ).map("co.fs2" %% _ % "3.3.0")
 
-  val postgres = Seq(
-    "org.postgresql" % "postgresql" % "42.5.0",
-    "org.tpolecat" %% "skunk-core" % "0.3.2"
-  )
+    val pureConfig = Seq(
+      "pureconfig-core"
+    ).map("com.github.pureconfig" %% _ % Versions.pureConfig)
 
-  val tapirVersion = "1.1.1"
-  val tapirNamespace = "com.softwaremill.sttp.tapir"
+    val tapir = Seq(
+      "tapir-core",
+      "tapir-sttp-client",
+      "tapir-http4s-server",
+      "tapir-json-circe").map(
+      "com.softwaremill.sttp.tapir" %% _ % Versions.tapir
+    )
 
-  val tapir = Seq(
-    "tapir-core",
-    "tapir-sttp-client",
-    "tapir-http4s-server",
-    "tapir-json-circe"
-  ).map(tapirNamespace%% _ % tapirVersion) ++ Seq("com.softwaremill.sttp.client3" %% "async-http-client-backend-cats" % "3.3.18")
+    val decline = Seq(
+      "decline-effect",
+      "decline"
+    ).map("com.monovore" %% _ % "2.3.1")
 
-  val http4s = Seq(
-    "org.http4s" %% "http4s-core" % "0.23.16",
-    "org.http4s" %% "http4s-blaze-server" % "0.23.12"
-  )
+    val advanced = Seq(
+      "io.github.arainko" %% "ducktape" % Versions.ducktape,
+      "io.github.iltotore" %% "iron" % Versions.iron,
+      "org.typelevel" %% "cats-parse" % Versions.catsParse
+    )
 
+    val postgres = Seq(
+      "org.postgresql" % "postgresql" % "42.5.0",
+      "org.tpolecat" %% "skunk-core" % "0.3.2"
+    )
+    val http4s = Seq(
+      "org.http4s" %% "http4s-server" % Versions.http4s,
+      "org.http4s" %%  "http4s-blaze-server" % Versions.http4sBlaze,
+    )
 
-  val tapirTest = Seq(
+    val circe = Seq("circe-core").map("io.circe" %% _ % Versions.circe) ++
+       Seq("io.circe" %% "circe-fs2" % "0.14.0")
+
+    val sttp = Seq("core", "circe", "async-http-client-backend-cats",  "slf4j-backend").map(
+      "com.softwaremill.sttp.client3" %% _  % Versions.sttp
+    )
+
+    val nettyOverrides = Seq("netty-handler", "netty-codec-http2").map("io.netty" % _  % Versions.netty)
+
+    cats ++ fs2 ++ pureConfig ++ tapir ++ http4s ++ circe ++ sttp ++ decline ++ advanced ++ postgres ++ nettyOverrides
+
+  }
+
+  val testDependencies: Seq[ModuleID] = {
+    val munit = Seq(
+      "munit-scalacheck",
+      "munit"
+    ).map("org.scalameta" %% _ % Versions.munit)
+
+    val tapir = Seq(
      "tapir-server-tests"
-    ).map(tapirNamespace %% _ % tapirVersion)
+    ).map("com.softwaremill.sttp.tapir" %% _ % Versions.tapir)
 
-  val decline = Seq(
-    "decline-effect",
-    "decline"
-  ).map("com.monovore" %% _ % "2.3.1")
+    val scalacheck = Seq(
+      "org.scalacheck" %% "scalacheck"                  % Versions.scalacheck,
+      "org.typelevel"  %% "scalacheck-effect"           % Versions.scalacheckEffect,
+      "com.47deg"      %% "scalacheck-toolbox-datetime" % Versions.scalaCheckToolbox
+    )
 
-  val config = Seq(
-    "pureconfig-core"
-  ).map("com.github.pureconfig" %%  _ % "0.17.1" )
+    val extras = Seq(
+      "org.typelevel"   %% "munit-cats-effect"            % Versions.munitCE,
+      "org.typelevel"   %% "scalacheck-effect-munit"        % Versions.scalacheckEffect,
+    )
 
-  val scalacheckEffect = Seq(
-    "scalacheck-effect",
-    "scalacheck-effect-munit"
-  ).map(
-    "org.typelevel" %% _ % "1.0.3"
-  )
+    scalacheck ++ munit ++ extras ++ tapir
+  }.map(_ % Test)
 
-  val dependencies = circe ++ fs2 ++ cats ++ postgres ++ tapir ++ decline ++ config ++ http4s
+}
 
-  val testDependencies = (Seq(
-    "org.scalacheck" %% "scalacheck" % "1.15.4",
-    "org.typelevel" %% "munit-cats-effect-3" % "1.0.3"
-  ) ++ scalacheckEffect ++ tapirTest).map(_ % "it,test")
+object Versions {
 
+  val scala              = "3.3.1"
+  val cats               = "2.10.0"
+  val fs2                = "3.9.3"
+  val catsEffect         = "3.5.2"
+  val kittens            = "3.1.0"
+  val pureConfig         = "0.17.4"
+  val decline            = "2.4.1"
+  val catsParse          = "1.0.0"
+  val ducktape           = "0.1.11"
+  val iron               = "2.3.0"
+
+  val tapir              = "1.9.0"
+  val http4s             = "0.23.24"
+  val http4sBlaze        = "0.23.15"
+  val circe              = "0.14.6"
+  val sttp               = "3.9.1"
+  val netty              = "4.1.101.Final"
+
+  val postgres           = "42.7.0"
+  val skunk              = "0.6.1"
+
+  val scalacheck         = "1.17.0"
+  val scalacheckEffect   = "1.0.4"
+  val scalaCheckToolbox  = "0.7.0"
+  val munit              = "1.0.0-M8"
+  val munitCE            = "2.0.0-M4"
 
 }
