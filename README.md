@@ -66,6 +66,8 @@ The generated project contains a simple `.github/workflow/scala.yml` configurati
 * ~the CI is relying on `g8test`, unfortunately this does not easily detect issues like ` An unexpected error occurred while processing the template. Check that all literal '$' are properly escaped with '\$'` due to https://github.com/foundweekends/giter8/issues/334~ DONE 
 * scaffolding (to conditionally generate either a cli or a server: i often need either one or the other) 
 * improve github actions pipeline
+* consider caching dependencies also in the main github action to test this repo
+* consider testing the generated github actions using something like [act](https://github.com/nektos/act) (at least a dry run)
 * ~consider using [make-g8](https://github.com/arturopala/make-it-g8)~ i've tried it in another project and didn't really help me that much 
 
 ## Giter8 crash course

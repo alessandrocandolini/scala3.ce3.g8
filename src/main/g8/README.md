@@ -9,7 +9,7 @@ sbt test
 
 To run integration tests
 ```shell
-sbt it:test
+sbt it/test
 ```
 
 To run the project through sbt

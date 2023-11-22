@@ -21,12 +21,12 @@ jobs:
     steps:
 
       - name: Checkout current branch
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
 
       - name: Setup Java
-        uses: actions/setup-java@v2
+        uses: actions/setup-java@v3
         with:
           java-version: '17'
           distribution: 'temurin'
@@ -34,8 +34,8 @@ jobs:
       - name: Run g8test
         run: sbt clean test
 
-      - name: Run the template through sbt new 
+      - name: Run the template through sbt new
         run: |
-          sbt new file://$(pwd) --name=testproject --force 
+          sbt new file://$(pwd) --name=testproject --force
           cd testproject && sbt clean assembly
         shell: bash
