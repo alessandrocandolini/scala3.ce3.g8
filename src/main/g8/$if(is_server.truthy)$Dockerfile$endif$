@@ -1,5 +1,5 @@
 
-ARG JAVA_VERSION=11
+ARG JAVA_VERSION=17
 
 # BUILDER
 
@@ -25,7 +25,7 @@ WORKDIR /work
 
 # compile
 COPY . /work
-RUN sbt clean assembly
+RUN sbt clean test it/test assembly
 
 # RUNNER
 
