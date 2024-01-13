@@ -28,7 +28,7 @@ The generated jar is `$jar_full_filename$`
 The fat jar can be run locally using
 ```
 java -jar $jar_full_filename$
-
+```
 $if(is_server.truthy)$
 ## Running the server using docker
 
@@ -49,6 +49,7 @@ For portability, the project is setup to rely directly on [Dockerfile](Dockerfil
 In the future, we might explore [sbt-native-image](https://github.com/scalameta/sbt-native-image)
 
 To run docker on MAC OS X, the following can be helpful https://github.com/docker/buildx/issues/426#issuecomment-723208580
+
 ## Check
 
 To check that the server is running fine (either when running it through `sbt run` or through docker), assuming `curl` is available, use
