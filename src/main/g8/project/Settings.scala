@@ -116,7 +116,7 @@ object Dependencies {
 
 object Versions {
 
-  val scala              = "3.3.1"
+  val scala              = "3.4.0-RC1"
   val cats               = "2.10.0"
   val fs2                = "3.9.3"
   val catsEffect         = "3.5.3"
