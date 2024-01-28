@@ -5,7 +5,7 @@ import cats.implicits.*
 
 enum Verbose derives CanEqual:
   case Verbose
-  case Quite
+  case Quiet
 
 enum Env derives CanEqual:
   case Local
@@ -20,7 +20,7 @@ case class Args(
 
 object Args:
 
-  val defaultVerbose : Verbose = Verbose.Verbose
+  val defaultVerbose : Verbose = Verbose.Quiet
 
   val defaultEnv : Env = Env.Stage
 
