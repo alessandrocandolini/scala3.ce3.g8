@@ -116,24 +116,24 @@ object Dependencies {
 
 object Versions {
 
-  val scala              = "3.4.0-RC1"
+  val scala              = "3.4.0-RC2"
   val cats               = "2.10.0"
-  val fs2                = "3.9.3"
+  val fs2                = "3.9.4"
   val catsEffect         = "3.5.3"
   val kittens            = "3.2.0"
   val pureConfig         = "0.17.5"
   val decline            = "2.4.1"
   val catsParse          = "1.0.0"
   val ducktape           = "0.1.11"
-  val iron               = "2.3.0"
+  val iron               = "2.4.0"
 
-  val tapir              = "1.9.7"
+  val tapir              = "1.9.9"
   $if(is_server.truthy)$
   val http4s             = "0.23.25"
   val http4sBlaze        = "0.23.15"
   $endif$
   val circe              = "0.14.6"
-  val sttp               = "3.9.1"
+  val sttp               = "3.9.2"
   val netty              = "4.1.106.Final"
 
   val postgres           = "42.7.0"
@@ -142,7 +142,7 @@ object Versions {
   val scalacheck         = "1.17.0"
   val scalacheckEffect   = "1.0.4"
   val scalaCheckToolbox  = "0.7.0"
-  val munit              = "1.0.0-M8"
+  val munit              = "1.0.0-M10"
   val munitCE            = "2.0.0-M4"
 
 }
