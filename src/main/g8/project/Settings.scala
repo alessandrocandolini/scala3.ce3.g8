@@ -63,7 +63,6 @@ object Dependencies {
     )
 
     val postgres = Seq(
-      "org.postgresql" % "postgresql" % Versions.postgres,
       "org.tpolecat" %% "skunk-core" % Versions.skunk
     )
     $if(is_server.truthy)$
@@ -76,13 +75,11 @@ object Dependencies {
     val circe = Seq("circe-core").map("io.circe" %% _ % Versions.circe) ++
        Seq("io.circe" %% "circe-fs2" % "0.14.0")
 
-    val sttp = Seq("core", "circe", "async-http-client-backend-cats",  "slf4j-backend").map(
-      "com.softwaremill.sttp.client4" %% _  % Versions.sttp
+    val sttp = Seq("core", "circe", "cats", "slf4j-backend").map(
+      "com.softwaremill.sttp.client4" %% _               % Versions.sttp
     )
 
-    val nettyOverrides = Seq("netty-handler", "netty-codec-http2").map("io.netty" % _  % Versions.netty)
-
-    cats ++ fs2 ++ pureConfig ++ tapir ++$if(is_server.truthy)$http4s ++$endif$ circe ++ sttp ++ decline ++ advanced ++ postgres ++ nettyOverrides
+    cats ++ fs2 ++ pureConfig ++ tapir ++$if(is_server.truthy)$http4s ++$endif$ circe ++ sttp ++ decline ++ advanced ++ postgres
 
   }
 
@@ -116,33 +113,31 @@ object Dependencies {
 
 object Versions {
 
-  val scala              = "3.4.2"
-  val cats               = "2.10.0"
-  val fs2                = "3.10.2"
-  val catsEffect         = "3.5.4"
-  val kittens            = "3.3.0"
-  val pureConfig         = "0.17.6"
+  val scala              = "3.7.2"
+  val cats               = "2.13.0"
+  val fs2                = "3.12.0"
+  val catsEffect         = "3.7.0-RC1"
+  val kittens            = "3.5.0"
+  val pureConfig         = "0.17.9"
   val decline            = "2.4.1"
-  val catsParse          = "1.0.0"
+  val catsParse          = "1.1.0"
   val ducktape           = "0.2.0"
   val iron               = "2.5.0"
 
-  val tapir              = "1.10.7"
+  val tapir              = "1.11.41"
   $if(is_server.truthy)$
-  val http4s             = "0.23.26"
-  val http4sBlaze        = "0.23.16"
+  val http4s             = "0.23.30"
+  val http4sBlaze        = "0.23.17"
   $endif$
-  val circe              = "0.14.7"
-  val sttp               = "4.0.0-M14"
-  val netty              = "4.1.109.Final"
+  val circe              = "0.14.14"
+  val sttp               = "4.0.9"
 
-  val postgres           = "42.7.3"
-  val skunk              = "1.0.0-M6"
+  val skunk              = "1.0.0-M11"
 
   val scalacheck         = "1.18.0"
   val scalacheckEffect   = "1.0.4"
   val scalaCheckToolbox  = "0.7.0"
-  val munit              = "1.0.0-RC1"
-  val munitCE            = "2.0.0-RC1"
+  val munit              = "1.1.0"
+  val munitCE            = "2.1.0"
 
 }
